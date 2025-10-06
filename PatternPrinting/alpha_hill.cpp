@@ -10,16 +10,13 @@ int main()
         {
             cout << " ";
         }
-        for (int j = 0; j < 2 * i + 1; j++)
+        for (int j = 0; j < i + 1; j++)
         {
-            if (j % 2 != 0)
-            {
-                cout << char(66);
-            }
-            else
-            {
-                cout << char(65);
-            }
+            cout << char(j + 65);
+        }
+        for (int k = i; k > 0; k--)
+        {
+            cout << char(k + 64);
         }
         cout << endl;
     }
