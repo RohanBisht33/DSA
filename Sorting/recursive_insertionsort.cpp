@@ -5,32 +5,30 @@ using namespace std;
 class Solution
 {
 public:
+    void insertRec(vector<int> &nums, int j, int keyVal)
+    {
+        if (j < 0 || nums[j] <= keyVal)
+        {
+            nums[j + 1] = keyVal;
+            return;
+        }
+        nums[j + 1] = nums[j];
+        insertRec(nums, j - 1, keyVal);
+    }
+
     void insertion_Sort(vector<int> &nums, int key, int n)
     {
-        int j = key - 1;
-        if (key >= n)
-        {
-            return;
-        }
-        if (j < 0)
-        {
-            insertion_Sort(nums, key + 1, n);
-            return;
-        }
-        if (nums[j] > nums[key])
-        {
-            nums[j + 1] = nums[j];
-            j--;
-        }
-        nums[j + 1] = nums[key];
-        insertion_Sort(nums, key, n);
+        if (key >= n) return;
+        int keyVal = nums[key];
+        insertRec(nums, key - 1, keyVal);
+        insertion_Sort(nums, key + 1, n);
     }
+
     vector<int> insertionSort(vector<int> &nums)
     {
-        size_t n = nums.size();
-        int key = 1;
-
-        insertion_Sort(nums, key, n);
+        int n = static_cast<int>(nums.size());
+        insertion_Sort(nums, 1, n);
+        return nums;
     }
 };
 
