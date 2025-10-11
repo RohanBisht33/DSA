@@ -21,9 +21,9 @@ public:
 
 int main() {
     int n;
-    if (!(cin >> n)) return 0;
-    vector<int> nums(n);
-    for (int i = 0; i < n; ++i) cin >> nums[i];
+    vector<int> nums;
+
+    nums = {3, 1, 4, 2, 5};
 
     Solution sol;
     cout << sol.largestElement(nums) << '\n';
