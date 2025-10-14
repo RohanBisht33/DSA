@@ -20,9 +20,7 @@ int main() {
     Solution sol;
     vector<int> nums = {0,0,3,3,5,6,9,9};
     int target = 5;
-
     int ret = sol.linearSearch(nums,target);
-
-    cout << "\nReturned index: " << ret << "\n";
+    cout << "Index: " << ret << "\n";
     return 0;
 }
