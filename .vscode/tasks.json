@@ -2,41 +2,22 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "type": "cppbuild",
-            "label": "C/C++: g++ build active file",
-            "command": "/usr/bin/g++",
+            "label": "build cpp on Windows",
+            "type": "shell",
+            "command": "g++",
             "args": [
-                "-fdiagnostics-color=always",
                 "-g",
                 "${file}",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}"
-            },
-            "problemMatcher": [
-                "$gcc"
+                "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
-            "detail": "Task for building C++ files on Ubuntu."
-        },
-        {
-            "type": "shell",
-            "label": "Run C++ file",
-            "command": "${fileDirname}/${fileBasenameNoExtension}",
-            "group": "build",
-            "problemMatcher": []
-        },
-        {
-            "type": "shell",
-            "label": "Run Python file",
-            "command": "python3 ${file}",
-            "group": "build",
-            "problemMatcher": []
+            "problemMatcher": [
+                "$gcc"
+            ]
         }
     ]
 }
