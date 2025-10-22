@@ -1,34 +1,43 @@
 #include <iostream>
 #include <vector>
-
 using namespace std;
 
 class Solution
 {
 public:
-    void rotateArrayByOne(vector<int> &nums){
-        size_t n = nums.size();
-        if (n == 0)
-            return;
-
-        int head = nums[0];
-        for (size_t i = 0; i + 1 < n; ++i)
+    void rotateArray(vector<int> &nums, int k)
+    {
+        k = k % nums.size();
+        if (k == 0)
         {
-            nums[i] = nums[i + 1];
+            return;
         }
-            nums[n - 1] = head;
+        vector<int> temp(k);
+        for (int i = 0; i < k; i++)
+        {
+            temp[i] = nums[i];
         }
+        for (size_t i = 0; i < (nums.size() - k); i++)
+        {
+            nums[i] = nums[i + k];
+        }
+        for (size_t i = 0; i < temp.size(); i++)
+        {
+            nums[i + nums.size() - k] = temp[i];
+        }
+    }
 };
+
 int main()
 {
     vector<int> a;
 
-    a = {1, 2, 3, 4, 5};
-
+    a = {3, 4, 1, 5, 3, -5};
+    int n = 8;
     Solution sol;
-    sol.rotateArrayByOne(a);
+    sol.rotateArray(a,n);
 
-    for (size_t i = 0; i < a.size(); ++i)
+    for (int i = 0; i < a.size(); i++)
     {
         cout << a[i];
     }

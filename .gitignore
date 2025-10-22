@@ -17,3 +17,4 @@ node_modules/
 # Keep shared files (like extensions/settings)
 !.vscode/settings.json
 !.vscode/extensions.json
+.vscode/c_cpp_properties.json
