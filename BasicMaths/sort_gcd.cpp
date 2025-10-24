@@ -10,9 +10,6 @@ ll gcdll(ll a, ll b) {
 }
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-
     int n;
     ll K;
     if (!(cin >> n >> K)) return 0;
