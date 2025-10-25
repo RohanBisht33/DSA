@@ -8,6 +8,7 @@ node_modules/
 .DS_Store
 *.tmp
 *.bak
+*.txt
 
 # ─────────────────────────────
 # 💻 VS Code local configs
@@ -18,3 +19,5 @@ node_modules/
 !.vscode/settings.json
 !.vscode/extensions.json
 .vscode/c_cpp_properties.json
+input.txt
+output.txt
