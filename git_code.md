@@ -42,3 +42,7 @@ pip install ipykernel notebook
 python -m ipykernel install --user \
   --name venv-name \
   --display-name "Python (venv-name)"
+
+#Running a c/c++ file
+gcc file.c
+./a.out
