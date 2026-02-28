@@ -1,15 +1,17 @@
 class Solution:
     def twoSum(self, nums, target):
         size = len(nums)
-        sum = nums[i]
-        j = 0
-
-        for i in range(size):
-            sum += nums[j]
+        left = 0
+        right = size-1
+        sum = 0
+        while(left < right):
+            sum = nums[left] + nums[right]
             if(sum > target):
-                sum = 0
-            elif(sum == target):
-                return [n for n in range()]
+                right -= 1
+            elif(sum < target):
+                left += 1
+            else:
+                return [left,right]
             
 sol = Solution()
-print(sol.twoSum( [1, 3, 5, -7, 6, -3], 0))
+print(sol.twoSum([1, 3, 5, 7, 9], 8))
