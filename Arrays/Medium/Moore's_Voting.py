@@ -6,8 +6,9 @@ class Solution:
         for i in nums:
             hash[i] = hash.get(i, 0) + 1
         
-        return [k for k,v in hash.items() if v == (max(hash.values()))]
+        return (max(hash, key=hash.get))
 
 
 sol = Solution()
 print(sol.majorityElement([-1, -1, -1, -1]))
+print(sol.majorityElement([2, 1, 3, 1, 2]))
