@@ -1,5 +1,6 @@
 {
-    "files.associations": {
-        "removeduplicates,cpp": "cpp"
+    "code-runner.executorMap": {
+    "python": "cd $workspaceRoot && python3 $fileName < input.txt > output.txt"
     }
+  
 }
