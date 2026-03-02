@@ -1,26 +1,29 @@
- [2, 3, 5, -2, 7, -4]
+[10, 7, 5, 8, 11, 9]
 
 
-i = 0
-sum = 2
-max = 2
-
-i = 1
-sum = 5
-max = 5
-
-i = 2
-sum = 10
+min = 10 
 max = 10
 
-i = 3
-sum = 8
+i = 0 == 10
+min = 10
 max = 10
 
-i = 4
-sum = 15
-max = 15
+i = 1 == 7
+min = 7
+max = 10
 
-i = 5
-sum = 11
-max = 15
+i = 2 == 5
+min = 5
+max = 10
+
+i = 3 == 8
+min = 5
+max = 10
+
+i = 4 == 11
+min = 5
+max = 11
+
+i = 4 == 9
+min = 5
+max = 11
