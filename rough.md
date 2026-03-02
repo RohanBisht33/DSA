@@ -2,25 +2,25 @@
 
 
 i = 0
-j = 0 == 2
 sum = 2
+max = 2
 
-i = 0
-j = 1 == 3
+i = 1
 sum = 5
+max = 5
 
-i = 0
-j = 2 == 5
+i = 2
 sum = 10
+max = 10
 
-i = 0
-j = 3 == -2
+i = 3
 sum = 8
+max = 10
 
-i = 0
-j = 4 == 7
+i = 4
 sum = 15
+max = 15
 
-i = 0
-j = 5 == -4
+i = 5
 sum = 11
+max = 15
