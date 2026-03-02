@@ -29,7 +29,7 @@ while t:
     t-=1
 print(sol.kadanes(nums))
 
-
+# O(n^2)
 # class Solution:
 #     def kadanes(self, nums):
 #         maximum = min(nums)
@@ -49,7 +49,7 @@ print(sol.kadanes(nums))
 # print(sol.kadanes([-2, -3, -7, -2, -10, -4]))
 
 
-
+# O(n^3)
 # class Solution:
 #     def kadanes(self, nums):
 #         maximum = min(nums)

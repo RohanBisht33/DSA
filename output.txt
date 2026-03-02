@@ -1,20 +1,55 @@
-size 6 max -4 array [-2, 3, 5, 2, 7, -4]
+hello
+hi
+running
 i =  0
-new sum =  -2
-new max =  -2
+j =  0
+difference =  0
+j =  1
+difference =  -3
+j =  2
+difference =  -5
+j =  3
+difference =  -2
+j =  4
+difference =  1
+profit =  1
+j =  5
+difference =  -1
 i =  1
-new sum =  1
-new max =  1
+j =  1
+difference =  0
+j =  2
+difference =  -2
+j =  3
+difference =  1
+j =  4
+difference =  4
+profit =  4
+j =  5
+difference =  2
 i =  2
-new sum =  6
-new max =  6
+j =  2
+difference =  0
+j =  3
+difference =  3
+j =  4
+difference =  6
+profit =  6
+j =  5
+difference =  4
 i =  3
-new sum =  8
-new max =  8
+j =  3
+difference =  0
+j =  4
+difference =  3
+j =  5
+difference =  1
 i =  4
-new sum =  15
-new max =  15
+j =  4
+difference =  0
+j =  5
+difference =  -2
 i =  5
-new sum =  11
-new max =  15
-[0, 4]
+j =  5
+difference =  0
+6
