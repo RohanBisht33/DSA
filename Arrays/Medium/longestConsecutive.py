@@ -1,15 +1,36 @@
 class Solution:
     def longest(self, array):
         
-        count = 1
-        array.sort()
-        max = 0
-        for i in range(len(array)-1):
-            if(array[i]+1 == array[i+1]):
-                count +=1
-                max = count
-            else:
+        count = 0
+        longest = 0
+        n = len(array)
+        
+        st = set()
+
+        for i in range(n):
+            st.add(array[i])
+        
+        for s in st:
+            if(s-1 not in st):
                 count = 1
+
+                x = s
+                while(x+1 in st):
+
+                    x += 1
+                    count +=1 
+                longest = max(longest, count)
+        return longest
+    
+        # count = 1
+        # array.sort()
+        # max = 0
+        # for i in range(len(array)-1):
+        #     if(array[i]+1 == array[i+1]):
+        #         count +=1
+        #         max = count
+        #     else:
+        #         count = 1
             
         return max
 
