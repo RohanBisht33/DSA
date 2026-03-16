@@ -1,44 +1,34 @@
 class Solution:
+     # Function to set entire row and column to 0 if an element in the matrix is 0
     def setZeroes(self, matrix):
+        # Get number of rows
+        m = len(matrix)
+        # Get number of columns
+        n = len(matrix[0])
 
-        rows = len(matrix)
-        cols = len(matrix[0])
-
-        zeros = []
-
-        # Step 1: find all zero positions
-        for i in range(rows):
-            for j in range(cols):
+        # First pass: mark rows and columns
+        for i in range(m):
+            for j in range(n):
+                # If current cell is zero
                 if matrix[i][j] == 0:
-                    zeros.append((i, j))
+                    # Mark entire row
+                    for col in range(n):
+                        if matrix[i][col] != 0:
+                            matrix[i][col] = -1
+                    # Mark entire column
+                    for row in range(m):
+                        if matrix[row][j] != 0:
+                            matrix[row][j] = -1
 
-        # Step 2: mark rows and columns
-        for r, c in zeros:
+        # Second pass: replace -1 with 0
+        for i in range(m):
+            for j in range(n):
+                if matrix[i][j] == -1:
+                    matrix[i][j] = 0
 
-            # make row zero
-            for j in range(cols):
-                matrix[r][j] = 0
-
-            # make column zero
-            for i in range(rows):
-                matrix[i][c] = 0
-
-        return matrix
-
-
-
-
-
-
-
-nums = []
-
-rows = int(input())
-cols = int(input())
-
-for _ in range(rows):
-    row = list(map(int, input().split()))
-    nums.append(row)
-
+# Driver code
+matrix = [[1,1,1],[1,0,1],[1,1,1]]
 sol = Solution()
-print(sol.setZeroes(nums))
+sol.setZeroes(matrix)
+for row in matrix:
+    print(row)
