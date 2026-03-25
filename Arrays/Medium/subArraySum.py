@@ -9,14 +9,13 @@ class Solution:
 
         # Traverse all possible start indices
         for i in range(n):
+            # Initialize sum for current subarray
+            total = 0
+
             # Traverse all possible end indices from start
             for j in range(i, n):
-                # Initialize sum for current subarray
-                total = 0
-
-                # Calculate sum of subarray from i to j
-                for m in range(i, j + 1):
-                    total += arr[m]
+                # Add current element to sum
+                total += arr[j]
 
                 # If sum equals k, increment count
                 if total == k:
