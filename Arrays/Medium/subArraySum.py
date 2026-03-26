@@ -1,27 +1,36 @@
 class Solution:
-    # Function to find count of subarrays with sum equal to k
+    # Function to find count of subarrays with sum equal to k using prefix sums and hashmap
     def subarraySum(self, arr, k):
         # Size of the array
         n = len(arr)
 
-        # Initialize count of subarrays
+        # Dictionary to store frequency of prefix sums
+        prefixSumCount = {}
+
+        # Initialize prefix sum and count of subarrays
+        prefixSum = 0
         count = 0
 
-        # Traverse all possible start indices
+        # Base case: prefix sum 0 has occurred once
+        prefixSumCount[0] = 1
+
+        # Traverse through the array
         for i in range(n):
-            # Initialize sum for current subarray
-            total = 0
+            # Add current element to prefix sum
+            prefixSum += arr[i]
 
-            # Traverse all possible end indices from start
-            for j in range(i, n):
-                # Add current element to sum
-                total += arr[j]
+            # Calculate the prefix sum that needs to be removed
+            remove = prefixSum - k
 
-                # If sum equals k, increment count
-                if total == k:
-                    count += 1
+            # If this prefix sum has been seen before,
+            # add its count to the result
+            if remove in prefixSumCount:
+                count += prefixSumCount[remove]
 
-        # Return total count of subarrays
+            # Update the frequency of the current prefix sum
+            prefixSumCount[prefixSum] = prefixSumCount.get(prefixSum, 0) + 1
+
+        # Return the total count of subarrays
         return count
 
 
