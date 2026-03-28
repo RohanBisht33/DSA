@@ -1,31 +1,26 @@
-# Class containing Pascal's Triangle generation logic
+# Class containing Pascal's Triangle row generation logic
 class Solution:
-    # Function to generate Pascal's Triangle up to numRows
-    def generate(self, numRows):
-        # Result list to hold all rows
-        triangle = []
+    # Function to generate the Nth row of Pascal's Triangle
+    def getNthRow(self, N):
+        # Result list to store the row
+        row = []
+        
+        # First value of the row is always 1
+        val = 1
+        row.append(val)
+        
+        # Compute remaining values using the relation:
+        # C(n, k) = C(n, k-1) * (n-k) / k
+        for k in range(1, N):
+            val = val * (N - k) // k
+            row.append(val)
+        
+        return row
 
-        # Loop for each row
-        for i in range(numRows):
-            # Create a row with size (i+1) and initialize all elements to 1
-            row = [1] * (i + 1)
+# Example usage
+N = 5  # Example: 5th row
+sol = Solution()
+result = sol.getNthRow(N)
 
-            # Fill elements from index 1 to i-1 (middle values)
-            for j in range(1, i):
-                # Each element = sum of two elements above it
-                row[j] = triangle[i - 1][j - 1] + triangle[i - 1][j]
-
-            # Add current row to the triangle
-            triangle.append(row)
-
-        return triangle
-
-
-if __name__ == "__main__":
-    obj = Solution()
-    n = 5
-
-    # Generate and print Pascal's Triangle
-    result = obj.generate(n)
-    for row in result:
-        print(" ".join(map(str, row)))
+# Print the row
+print(*result)
