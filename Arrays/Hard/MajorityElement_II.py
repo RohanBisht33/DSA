@@ -1,36 +1,34 @@
+from collections import defaultdict
 from typing import List
 
 class Solution:
     # Function to find majority elements in an array
     def majorityElementTwo(self, nums: List[int]) -> List[int]:
-        
         # Size of the array
         n = len(nums)
-        
+
         # List of answers
         result = []
-        
-        for i in range(n):
-            """ Checking if nums[i] is not 
-            already part of the answer """
-            if len(result) == 0 or result[0] != nums[i]:
-                
-                cnt = 0
-                
-                for j in range(n):
-                    # counting the frequency of nums[i]
-                    if nums[j] == nums[i]:
-                        cnt += 1
-                
-                # check if frequency is greater than n/3
-                if cnt > (n // 3):
-                    result.append(nums[i])
-                
-            # if result size is equal to 2 break out of loop
+
+        # Declaring a map
+        mpp = defaultdict(int)
+
+        # Least occurrence of the majority element
+        mini = n // 3 + 1
+
+        # Storing the elements with its occurrence
+        for num in nums:
+            mpp[num] += 1
+
+            # Checking if num is the majority element
+            if mpp[num] == mini:
+                result.append(num)
+
+            # If result size is equal to 2 break out of loop
             if len(result) == 2:
                 break
-        
-        # return the majority elements
+
+        # Return the majority elements
         return result
 
 if __name__ == "__main__":
@@ -42,7 +40,4 @@ if __name__ == "__main__":
     ans = sol.majorityElementTwo(arr)
     
     # Print the majority elements found
-    print("The majority elements are:", end=" ")
-    for it in ans:
-        print(it, end=" ")
-    print()
+    print("The majority elements are:", *ans)
