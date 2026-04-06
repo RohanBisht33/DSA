@@ -2,29 +2,41 @@
 class Solution:
     # Function to find triplets with sum zero
     def threeSum(self, arr, n):
-        # Store unique triplets
-        ans = set()
+        # Sort the array
+        arr.sort()
+        # Store final result
+        ans = []
 
         # First loop for first element
         for i in range(n):
-            # Set to store elements seen in this iteration
-            hashset = set()
+            # Skip duplicates for first element
+            if i > 0 and arr[i] == arr[i - 1]:
+                continue
 
-            # Second loop for second element
-            for j in range(i + 1, n):
-                # Calculate third element needed
-                third = -(arr[i] + arr[j])
+            # Two pointers
+            left, right = i + 1, n - 1
 
-                # If third already in set, we found a triplet
-                if third in hashset:
-                    triplet = tuple(sorted([arr[i], arr[j], third]))
-                    ans.add(triplet)
+            # Find pairs for current arr[i]
+            while left < right:
+                total = arr[i] + arr[left] + arr[right]
 
-                # Add current element to set
-                hashset.add(arr[j])
+                if total == 0:
+                    ans.append([arr[i], arr[left], arr[right]])
+                    left += 1
+                    right -= 1
 
-        # Convert set to list of lists
-        return [list(triplet) for triplet in ans]
+                    # Skip duplicates for left
+                    while left < right and arr[left] == arr[left - 1]:
+                        left += 1
+                    # Skip duplicates for right
+                    while left < right and arr[right] == arr[right + 1]:
+                        right -= 1
+
+                elif total < 0:
+                    left += 1
+                else:
+                    right -= 1
+        return ans
 
 # Driver code
 if __name__ == "__main__":
