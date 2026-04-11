@@ -1,38 +1,43 @@
 # compute length of the longest subarray with sum 0
-def solve(a: list[int]) -> int:
-    # store best length found so far
-    max_len = 0
+def maxLen(A: list[int], n: int) -> int:
     # map prefix sum -> first index seen
-    sum_index = {}
+    mpp: dict[int, int] = {}
+    # best length so far
+    maxi = 0
     # running prefix sum
     s = 0
 
-    # iterate through the array
-    for i, val in enumerate(a):
+    # iterate over the array
+    for i in range(n):
         # update running sum
-        s += val
+        s += A[i]
 
         # if sum is zero, subarray [0..i] has zero sum
         if s == 0:
             # update best length
-            max_len = i + 1
-        # if this sum seen before, subarray (prevIndex..i] has zero sum
-        elif s in sum_index:
-            # maximize length using previous index
-            max_len = max(max_len, i - sum_index[s])
-        # first time seeing this sum, store its index
+            maxi = i + 1
+        # otherwise check if this sum was seen before
         else:
-            sum_index[s] = i
+            # when seen, zero-sum segment between previous index + 1 and i
+            if s in mpp:
+                # maximize length
+                maxi = max(maxi, i - mpp[s])
+            # first time seeing this sum
+            else:
+                # record index
+                mpp[s] = i
 
     # return best length
-    return max_len
+    return maxi
 
 # program entry
 def main():
     # sample input
-    a = [9, -3, 3, -1, 6, -5]
+    A = [9, -3, 3, -1, 6, -5]
+    # compute size
+    n = len(A)
     # print result
-    print(solve(a))
+    print(maxLen(A, n))
 
 # run main
 if __name__ == "__main__":
