@@ -2,16 +2,15 @@ class Solution:
     def binarySearch(self, array,k):
         left = 0
         right = len(array)-1
+        ans = right+1
         while(left<=right):
             mid = (left+(right-left))//2
-            if(array[mid]==k):
-                print(array)
-                return mid
-            elif(array[mid]>k):
-                right = mid - 1
+            if(array[mid]>=k):
+                ans = mid
+                right = mid -1
             else:
-                left = mid + 1
-        return -1
+                left = mid+1
+        return ans
 
 nums = []
 k = int(input())
