@@ -5,7 +5,7 @@ class Solution:
         ans = right+1
         while(left<=right):
             mid = (left+(right-left))//2
-            if(array[mid]>=k):
+            if(array[mid]>k):
                 ans = mid
                 right = mid -1
             else:
