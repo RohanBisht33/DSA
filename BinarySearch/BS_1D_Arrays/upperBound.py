@@ -21,3 +21,5 @@ while t:
 
 sol = Solution()
 print(sol.upperBound(nums,k))
+
+#It gives smallest index where element can be placed
