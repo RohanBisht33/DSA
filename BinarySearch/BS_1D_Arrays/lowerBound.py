@@ -4,7 +4,7 @@ class Solution:
         right = len(array)-1
         ans = len(array)
         while(left<=right):
-            mid = (left+(right-left))//2
+            mid = left+(right-left)//2
             if(array[mid]>=k):
                 ans = mid
                 right = right -1

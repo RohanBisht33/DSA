@@ -1,17 +1,19 @@
 class Solution:
-    def binarySearch(self, array,k):
+    def countOccurence(self, array,k):
         left = 0
         right = len(array)-1
+        count = -1
         while(left<=right):
             mid = left+(right-left)//2
             if(array[mid]==k):
-                print(array)
-                return mid
+                count +=1
+                left = mid + 1
+                
             elif(array[mid]>k):
                 right = mid - 1
             else:
                 left = mid + 1
-        return -1
+        return count+1
 
 nums = []
 k = int(input())
@@ -21,4 +23,4 @@ while t:
     t -= 1
 
 sol = Solution()
-print(sol.binarySearch(nums,k))
+print(sol.countOccurence(nums,k))
