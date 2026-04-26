@@ -49,17 +49,17 @@ class Solution:
         while(left<=right):
             mid = left+(right-left)//2
             if(array[mid]==k):
-                print(array)
+                #print(array)
                 return True
             if(array[left] ==k):
                 return True
             if(array[right] ==k):
                 return True
             elif(array[mid]>k and array[left]<k):
-                print([array[x] for x in range(left,right+1)])
+                #print([array[x] for x in range(left,right+1)])
                 right = mid - 1
             else:
-                print([array[x] for x in range(left,right+1)])
+                #print([array[x] for x in range(left,right+1)])
                 left = mid + 1
             
         return False
